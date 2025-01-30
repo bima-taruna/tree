@@ -1,25 +1,27 @@
+type NodeOrNull<T> = NodeCustom<T> | null;
+
 class NodeCustom<T> {
-  #left: NodeCustom<T> | null;
-  #right: NodeCustom<T> | null;
+  #left: NodeOrNull<number>;
+  #right: NodeOrNull<number>;
 
   constructor(public value: T) {
     this.#left = null;
     this.#right = null;
   }
 
-  public get left(): NodeCustom<T> | null {
+  public get left(): NodeOrNull<number> {
     return this.#left;
   }
 
-  public get right(): NodeCustom<T> | null {
+  public get right(): NodeOrNull<number> {
     return this.#right;
   }
 
-  public set left(newValue: NodeCustom<T> | null) {
+  public set left(newValue: NodeOrNull<number>) {
     this.#left = newValue;
   }
 
-  public set right(newValue: NodeCustom<T> | null) {
+  public set right(newValue: NodeOrNull<number>) {
     this.#right = newValue;
   }
 }

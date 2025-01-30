@@ -4,7 +4,7 @@ type NodeOrNull<T> = NodeCustom<T> | null;
 
 interface Tree<T> {
   insert(value: number): void;
-  lookup(): NodeOrNull<T>;
+  lookup(value: number): NodeOrNull<T>;
   root: NodeOrNull<T>;
 }
 
@@ -14,8 +14,70 @@ class BinarySearchTree implements Tree<number> {
     this.root = null;
   }
 
-  lookup(): NodeOrNull<number> {
-    throw new Error("Method not implemented.");
+  lookup(value: number): NodeOrNull<number> {
+    if (!this.root) {
+      return null;
+    }
+    let currentNode = this.root;
+    while (true) {
+      if (value === currentNode.value) {
+        return currentNode;
+      }
+      if (value > currentNode.value) {
+        if (!currentNode.right) {
+          return null;
+        }
+        currentNode = currentNode.right;
+      } else {
+        if (!currentNode.left) {
+          return null;
+        }
+        currentNode = currentNode.left;
+      }
+    }
+  }
+
+  remove(value: number): void {
+    if (!this.root) {
+      return;
+    }
+    let currentNode = this.root;
+    let parentNode: NodeOrNull<number> = null;
+    while (currentNode) {
+      if (value < currentNode.value) {
+        parentNode = currentNode;
+        currentNode = currentNode.left;
+      } else if (value > currentNode.value) {
+        parentNode = currentNode;
+        currentNode = currentNode.right;
+      } else if (currentNode.value === value) {
+        if (currentNode.right === null) {
+          if (parentNode === null) {
+            this.root = currentNode.left;
+          } else {
+            if (currentNode.value < parentNode.value) {
+              parentNode.left = currentNode.left;
+            } else if (currentNode.value > parentNode.value) {
+              parentNode.right = currentNode.left;
+            }
+          }
+        } else if (currentNode.right.left === null) {
+          if (parentNode === null) {
+            this.root = currentNode.left;
+          } else {
+            currentNode.right.left = currentNode.left;
+            if (currentNode.value < parentNode.value) {
+              parentNode.left = currentNode.right;
+            } else if (currentNode.value > parentNode.value) {
+              parentNode.right = currentNode.right;
+            }
+          }
+        } else {
+        }
+      } else {
+        return;
+      }
+    }
   }
 
   insert(value: number): void {
