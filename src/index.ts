@@ -37,4 +37,4 @@ import { fibonacciIterative } from "./fibonacci";
 
 // console.log(findFactorialRecursive(2));
 // console.log(findFactorialIterative(2));
-console.log(fibonacciIterative(1));
+console.log(fibonacciIterative(2));
