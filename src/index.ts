@@ -3,7 +3,7 @@ import traverse from "./traverse";
 import Graph from "./graph";
 import { findFactorialIterative, findFactorialRecursive } from "./factorial";
 import { fibonacciIterative, fibonacciRecursive } from "./fibonacci";
-import { reverseString } from "./reverseString";
+import { reverseString, reverseStringRecursive } from "./reverseString";
 // const tes = new BinarySearchTree();
 
 // tes.insert(9);
@@ -41,3 +41,4 @@ import { reverseString } from "./reverseString";
 // console.log(fibonacciIterative(2));
 // console.log(fibonacciRecursive(8));
 console.log(reverseString("yoyo master"));
+console.log(reverseStringRecursive("yoyo master"));
