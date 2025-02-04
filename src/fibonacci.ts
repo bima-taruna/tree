@@ -16,9 +16,11 @@ function fibonacciIterative(params: number): number {
 }
 
 function fibonacciRecursive(params: number): number {
-  if (params === 0) {
-    return 0;
+  if (params <= 1) {
+    return params;
   }
+
+  return fibonacciRecursive(params - 1) + fibonacciRecursive(params - 2);
 }
 
 export { fibonacciIterative, fibonacciRecursive };

@@ -2,7 +2,7 @@ import BinarySearchTree from "./tree";
 import traverse from "./traverse";
 import Graph from "./graph";
 import { findFactorialIterative, findFactorialRecursive } from "./factorial";
-import { fibonacciIterative } from "./fibonacci";
+import { fibonacciIterative, fibonacciRecursive } from "./fibonacci";
 // const tes = new BinarySearchTree();
 
 // tes.insert(9);
@@ -37,4 +37,5 @@ import { fibonacciIterative } from "./fibonacci";
 
 // console.log(findFactorialRecursive(2));
 // console.log(findFactorialIterative(2));
-console.log(fibonacciIterative(2));
+// console.log(fibonacciIterative(2));
+console.log(fibonacciRecursive(8));
